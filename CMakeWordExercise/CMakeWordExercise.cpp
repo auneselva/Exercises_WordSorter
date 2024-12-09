@@ -6,7 +6,7 @@
 int main()
 {
 	std::shared_ptr<Test> test = std::make_shared<Test>();
-	std::unordered_map<std::string, uint32_t>* map = new std::unordered_map<std::string, uint32_t>();
+	std::shared_ptr < std::unordered_map<std::string, uint32_t>> map = std::make_shared < std::unordered_map<std::string, uint32_t>>();
 	std::cout << "Hello, I'm a word sorter.\n\n" << std::endl;
 
 	std::cout << "Example 0: |" << test->example0 << "|\n\n";
