@@ -13,7 +13,7 @@ int main()
 	for (std::string& example : test.examples) {
 
 		timer.Reset();
-		std::cout << "Example 0: |" << example << "|\n\n";
+		std::cout << "Example: " << example << "|\n\n";
 		
 		std::unordered_map<std::string, uint32_t> map;
 		WordSorter::CountWords(example, map);
