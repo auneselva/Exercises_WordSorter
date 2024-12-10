@@ -1,14 +1,16 @@
 #pragma once
 
 #include <iostream>
-
+#include <array>
 class Test {
 public:
-	std::string example0 = R"x(This is only a test test test test)x";
-	std::string example1 = R"x(This is only a test test test test.)x";
-	std::string example2 = R"x(This is only a test test test test. )x";
-	std::string example3 = R"x(This is only a test test test test )x";
-	std::string example4 = R"(A blood black nothingness began to spin.
+	std::array<std::string, 5> examples;
+	Test() :
+		examples({ R"x(This is only a test test test test)x",
+		R"x(This is only a test test test test.)x",
+		R"x(This is only a test test test test. )x",
+		R"x(This is only a test test test test )x",
+		R"(A blood black nothingness began to spin.
 		A system of cells interlinked,
 		Within cells interlinked,
 		Within cells interlinked,
@@ -120,5 +122,7 @@ public:
 		A tall white fountain played.
 		When you were little did you ever fall into a Fountain ? (A Tall White Fountain.)
 		Do you like fire, earth, air or water. (A Tall White Fountain.)
-		Do you like skipping around in the water ? (A Tall White Fountain.)";
+		Do you like skipping around in the water ? (A Tall White Fountain.)"
+			}) {
+	}
 };

@@ -13,7 +13,6 @@ void WordSorter::CountWords(std::string& Text, std::unordered_map<std::string, u
 {
 	uint32_t firstLetterIndex = 0;
 	uint32_t wordLength = 0;
-
 	for (size_t i = 0; i < Text.length(); i++) {
 
 		if (std::isspace(Text.at(i)) || i == Text.length() - 1) { // || std::ispunct)
@@ -32,6 +31,7 @@ void WordSorter::CountWords(std::string& Text, std::unordered_map<std::string, u
 			firstLetterIndex = i + 1;
 		}
 	}
+	
 	std::cout << "Unsorted key-value pairs:\n";
 	printContainer(OutWords);
 	std::cout << "\n\n";
