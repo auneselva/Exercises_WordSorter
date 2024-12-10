@@ -2,17 +2,10 @@
 #include <vector>
 #include <algorithm>
 
-template <typename Container>
-void PrintContainer(const Container& container) {
-	for (const auto& pair : container) {
-		std::cout << pair.first << ": " << pair.second << std::endl;
-	}
-}
-
-void WordSorter::CountWords(std::string& Text, std::unordered_map<std::string, uint32_t>& OutWords)
-{
+std::unordered_map<std::string, uint32_t> WordSorter::CountWords(std::string& Text) {
 	uint32_t firstLetterIndex = 0;
 	uint32_t wordLength = 0;
+	std::unordered_map<std::string, uint32_t> OutWords;
 	for (size_t i = 0; i < Text.length(); i++) {
 
 		if (std::isspace(Text.at(i)) || i == Text.length() - 1) { // || std::ispunct)
@@ -23,6 +16,7 @@ void WordSorter::CountWords(std::string& Text, std::unordered_map<std::string, u
 				firstLetterIndex = i + 1;
 				continue;
 			}
+
 			std::string word = Text.substr(firstLetterIndex, wordLength);
 			if (OutWords.contains(word))
 				OutWords.insert_or_assign(word, OutWords.at(word) + 1);
@@ -31,32 +25,23 @@ void WordSorter::CountWords(std::string& Text, std::unordered_map<std::string, u
 			firstLetterIndex = i + 1;
 		}
 	}
-	
-	std::cout << "Unsorted key-value pairs:\n";
-	PrintContainer(OutWords);
-	std::cout << "\n\n";
+	return OutWords;
 }
-void WordSorter::SortWordsByFrequency(std::unordered_map<std::string, uint32_t>& InWordsList)
-{
+
+std::vector<std::pair<std::string, uint32_t>> WordSorter::SortWordsByFrequency(std::unordered_map<std::string, uint32_t>& InWordsList) {
 	std::vector<std::pair<std::string, uint32_t>> vec(InWordsList.begin(), InWordsList.end());
 
 	std::sort(vec.begin(), vec.end(), [](const std::pair<std::string, uint32_t>& a, const std::pair<std::string, uint32_t>& b) {
 		return a.second > b.second;
 		});
-
-	std::cout << "Sorted key-value pairs by value:\n";
-	PrintContainer(vec);
-	std::cout << "\n\n";
+	return vec;
 }
 
-void WordSorter::SortWordsAlphabetically(std::unordered_map<std::string, uint32_t>& InWordsList) {
+std::vector<std::pair<std::string, uint32_t>> WordSorter::SortWordsAlphabetically(std::unordered_map<std::string, uint32_t>& InWordsList) {
 	std::vector<std::pair<std::string, uint32_t>> vec(InWordsList.begin(), InWordsList.end());
 
 	std::sort(vec.begin(), vec.end(), [](const std::pair<std::string, uint32_t>& a, const std::pair<std::string, uint32_t>& b) {
 		return a.first < b.first; //case-insensitive
 		});
-
-	std::cout << "Sorted key-value pairs alphabetically:\n";
-	PrintContainer(vec);
-	std::cout << "\n\n";
+	return vec;
 }
