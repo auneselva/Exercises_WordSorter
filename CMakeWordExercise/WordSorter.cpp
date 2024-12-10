@@ -3,7 +3,7 @@
 #include <algorithm>
 
 template <typename Container>
-void printContainer(const Container& container) {
+void PrintContainer(const Container& container) {
 	for (const auto& pair : container) {
 		std::cout << pair.first << ": " << pair.second << std::endl;
 	}
@@ -33,7 +33,7 @@ void WordSorter::CountWords(std::string& Text, std::unordered_map<std::string, u
 	}
 	
 	std::cout << "Unsorted key-value pairs:\n";
-	printContainer(OutWords);
+	PrintContainer(OutWords);
 	std::cout << "\n\n";
 }
 void WordSorter::SortWordsByFrequency(std::unordered_map<std::string, uint32_t>& InWordsList)
@@ -45,7 +45,7 @@ void WordSorter::SortWordsByFrequency(std::unordered_map<std::string, uint32_t>&
 		});
 
 	std::cout << "Sorted key-value pairs by value:\n";
-	printContainer(vec);
+	PrintContainer(vec);
 	std::cout << "\n\n";
 }
 
@@ -57,6 +57,6 @@ void WordSorter::SortWordsAlphabetically(std::unordered_map<std::string, uint32_
 		});
 
 	std::cout << "Sorted key-value pairs alphabetically:\n";
-	printContainer(vec);
+	PrintContainer(vec);
 	std::cout << "\n\n";
 }
