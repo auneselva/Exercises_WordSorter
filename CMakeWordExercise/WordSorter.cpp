@@ -9,6 +9,7 @@ std::unordered_map<std::string, uint32_t> WordSorter::CountWords(std::string& Te
 	std::unordered_map<std::string, uint32_t> OutWords;
 	for (size_t i = 0; i < Text.length(); i++) {
 		if (std::isspace(Text.at(i)) || (std::ispunct(Text.at(firstLetterIndex)) && i - firstLetterIndex == 0) || i == Text.length() - 1) {
+
 			wordLength = i - firstLetterIndex; //size_t -> uint32_t ?
 			if (i == Text.length() - 1 && !std::isspace(Text.at(i)))
 				wordLength++;
@@ -16,6 +17,7 @@ std::unordered_map<std::string, uint32_t> WordSorter::CountWords(std::string& Te
 				firstLetterIndex = i + 1;
 				continue;
 			}
+
 			std::string word = Text.substr(firstLetterIndex, wordLength);
 			while (word.length() > 0 && std::ispunct(word[word.length() - 1])) {
 				word.pop_back();
@@ -24,14 +26,13 @@ std::unordered_map<std::string, uint32_t> WordSorter::CountWords(std::string& Te
 				firstLetterIndex = i + 1;
 				continue;
 			}
+
 			std::transform(word.begin(), word.end(), word.begin(),
 				[](unsigned char l) {
 					return std::tolower(l);
 				});
-			if (OutWords.contains(word))
-				OutWords.insert_or_assign(word, OutWords.at(word) + 1);
-			else
-				OutWords.emplace(word, 1);
+			OutWords.insert_or_assign(word, OutWords[word] + 1);
+
 			firstLetterIndex = i + 1;
 		}
 	}
