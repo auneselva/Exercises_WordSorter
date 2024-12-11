@@ -7,7 +7,7 @@
 template <typename Container>
 void PrintContainer(const Container& container) {
 	for (const auto& pair : container) {
-		std::cout << pair.first << ": " << pair.second << std::endl;
+		std::cout << pair.first << ": " << pair.second << "\n";
 	}
 	std::cout << "\n\n";
 }
