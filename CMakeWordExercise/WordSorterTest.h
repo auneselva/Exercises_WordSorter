@@ -2,10 +2,10 @@
 
 #include <iostream>
 #include <array>
-class Test {
+class WordSorterTest {
 public:
 	std::array<std::string, 5> examples;
-	Test() :
+	WordSorterTest() :
 		examples({ R"x(This is only a test test test test)x",
 		R"x(This    is only a test test test test.)x",
 		R"x(We're lost. And... what's up?)x",

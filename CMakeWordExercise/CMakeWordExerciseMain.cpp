@@ -1,7 +1,7 @@
 ﻿
-#include "CMakeWordExercise.h"
+#include "CMakeWordExerciseMain.h"
 #include "WordSorter.h"
-#include "Test.h"
+#include "WordSorterTest.h"
 #include "Timer.h"
 
 template <typename Container>
@@ -15,7 +15,7 @@ void PrintContainer(const Container& container) {
 int main() {
 	std::cout << "Hello, I'm a word sorter.\n\n";
 
-	Test test;
+	WordSorterTest test;
 	Timer timer;
 	for (std::string& example : test.examples) {
 
