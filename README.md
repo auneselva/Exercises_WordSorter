@@ -5,7 +5,7 @@ Created in **Visual Studio 2022** using CMake template project.
 
 ## Getting Started
 
-If you happen to setup this project on your computer, I encourage you to start looking into `CMakeWordExerciseMain.cpp` - it stores the `main()` function, where the sorting functions from `WordSorter` class are executed on example texts which are defined in `WordSorterTest`. 
+If you happen to setup this project on your computer, I encourage you to start by looking into `CMakeWordExerciseMain.cpp` - it stores the `main()` function, where the sorting functions from `WordSorter` class are executed on example texts which are defined in `WordSorterTest`. 
 Also `Timer` object measures time of executing the counting and sorting operations on each example text.
 
 ## Authors
